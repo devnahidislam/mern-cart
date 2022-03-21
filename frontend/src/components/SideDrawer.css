@@ -1,0 +1,73 @@
+.sideDrawer {
+  height: 100vh;
+  width: 60%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  transform:translateX(-100%);
+  transition: all 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+.sideDrawer.show{
+  transform:translateX(0);
+}
+
+.sideDrawer_link {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+.sideDrawer_link > li {
+  display: flex;
+  align-items: center;
+}
+.sideDrawer_link > li > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  flex: 1;
+  padding: 1rem;
+  font-size:1.8rem;
+  color:#171717;
+
+}
+.sideDrawer_link > li > a:hover{
+  background: #171717;
+  color: #f4f4f4;
+  border-radius: 1rem;
+  transition: .4s;
+}
+.sideDrawer_link > li > a span{
+  margin-left: .5rem;
+  font-weight: 600;
+}
+.sideDrawer_cart span {
+  display: flex;
+  align-items: center;
+}
+.sideDrawer_cartBadge{
+  height:2.2rem;
+  width:2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #171717;
+  border-radius: 50%;
+  color: #f4f4f4;
+  margin-left: .5rem;
+  font-size: 1.4rem;
+}
+.sideDrawer_link > li > a:hover .sideDrawer_cartBadge{
+  background: #dd219e;
+}
+@media (min-width: 960px) {
+  .sideDrawer{
+    display: none;
+  }
+}
