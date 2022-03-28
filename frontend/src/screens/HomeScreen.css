@@ -1,0 +1,31 @@
+.homeScreen{
+  max-width: 130rem;
+  margin:1rem auto;
+}
+.homeScreen_title{
+  font-size: 3rem;
+  color: #171717;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  text-align: center;
+}
+.homeScreen_products{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1232px) {
+  .homeScreen_products{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 800px) {
+  .homeScreen_products{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 630px) {
+  .homeScreen_products{
+    grid-template-columns: 1fr;
+  }
+}
