@@ -2,26 +2,28 @@
 import './cartItem.css'
 import { Link } from 'react-router-dom';
 
-const CartItem = () => {
+const CartItem = ({ item, qtyChangeHandler, removeFromCart }) => {
   return (
     <div className="cartItem">
       <div className="cartItem_img">
-        <img src="https://ik.imagekit.io/nahidislam/products/10_5y2DeBB1a.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1648274982511" alt="Product"/>
+        <img src={item.image} alt={item.name}/>
       </div>
-      <Link to={'/product/:1'} className="product_name">
-        <p>Product 1</p>
+      <Link to={`/product/${item.product}`} className="product_name">
+        <p>{item.name}</p>
       </Link>
-      <p className="cartItem_price">$44.99</p>
-      <p>
-          <select className="cartItem_select">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-      </p>
-      <button type="button" className="cartItem_delete">
+      <p className="cartItem_price">${item.price}</p>
+      <select
+        className="cartItem_select"
+        value={item.qty}
+        onChange={(e) => qtyChangeHandler(item.product, e.target.value)}
+      >
+        {[...Array(item.countInStock).keys()].map((x) => (
+          <option key={x + 1} value={x + 1}>{x + 1}</option>
+        ))}
+      </select>
+      <button type="button"
+        className="cartItem_delete"
+        onClick={() => removeFromCart(item.product)}>
         <i className="fas fa-trash"></i>
       </button>
     </div>
